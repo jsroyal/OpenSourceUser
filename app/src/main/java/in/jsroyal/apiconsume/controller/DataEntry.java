@@ -32,6 +32,7 @@ public class DataEntry extends AppCompatActivity {
                 Intent intent = new Intent(DataEntry.this, MainActivity.class);
                 intent.putExtra("location", loca);
                 intent.putExtra("language", lang);
+                intent.putExtra("gender", "female");
                 startActivity(intent);
             }
         });
