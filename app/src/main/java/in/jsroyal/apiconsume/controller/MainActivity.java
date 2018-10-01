@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Item item;
     ProgressDialog pd;
     private SwipeRefreshLayout swipeContainer;
-    public String location,language;
+    public String location,language, gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         location = extras.getString("location");
         language = extras.getString("language");
+        gender = extras.getString("gender");
         Log.d("location",location );
         Log.d("lan",location );
 
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             Client Client = new Client();
             Service apiService =
                     Client.getClient().create(Service.class);
-            Call<ItemResponse> call = apiService.getItems(location,language);
+            Call<ItemResponse> call = apiService.getItems(location,language, gender);
             call.enqueue(new Callback<ItemResponse>() {
                 @Override
                 public void onResponse(Call<ItemResponse> call, Response<ItemResponse> response) {

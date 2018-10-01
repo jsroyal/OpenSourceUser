@@ -11,6 +11,7 @@ public interface Service {
     @GET("/search/users")
     Call<ItemResponse> getItems(
             @Query("q") String location,
-            @Query("q") String language
+            @Query("q") String language,
+            @Query("q") String gender
     );
 }
